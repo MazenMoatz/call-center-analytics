@@ -78,6 +78,64 @@ Operational efficiency and SLA compliance breakdown.
 
 ---
 
+## 🧮 DAX Measures (17 Measures)
+
+| # | Measure | Formula |
+|---|---------|---------|
+| 1 | Total Tickets | `COUNTROWS(Fact_Tickets)` |
+| 2 | FCR Rate | `DIVIDE(COUNTROWS(FILTER(Fact_Tickets, Fact_Tickets[is_fcr] = TRUE())), [Total Tickets])` |
+| 3 | Avg CSAT | `AVERAGE(Fact_Tickets[csat_score])` |
+| 4 | Avg NPS | `AVERAGE(Fact_Tickets[nps_score])` |
+| 5 | SLA Breach Rate | `DIVIDE(COUNTROWS(FILTER(Fact_Tickets, Fact_Tickets[is_sla_breached] = TRUE())), [Total Tickets])` |
+| 6 | Avg AHT | `AVERAGE(Fact_Tickets[handle_time])` |
+| 7 | Avg Wait Time | `AVERAGE(Fact_Tickets[wait_time])` |
+| 8 | Escalation Rate | `DIVIDE(COUNTROWS(FILTER(Fact_Tickets, Fact_Tickets[is_escalated] = TRUE())), [Total Tickets])` |
+| 9 | Avg Resolution Time | `AVERAGE(Fact_Tickets[resolution_time])` |
+| 10 | Reopen Rate | `DIVIDE(COUNTROWS(FILTER(Fact_Tickets, Fact_Tickets[is_reopened] = TRUE())), [Total Tickets])` |
+| 11 | Total Cost | `SUM(Fact_Tickets[contact_cost])` |
+| 12 | Avg Cost Per Contact | `DIVIDE([Total Cost], [Total Tickets])` |
+| 13 | Avg LTV | `AVERAGE(Dim_Customer[lifetime_value])` |
+| 14 | Churn Rate | `DIVIDE(COUNTROWS(FILTER(Dim_Customer, Dim_Customer[is_churned] = TRUE())), COUNTROWS(Dim_Customer))` |
+| 15 | Avg Tickets Per Customer | `DIVIDE([Total Tickets], COUNTROWS(Dim_Customer))` |
+| 16 | Resolved Tickets | `COUNTROWS(FILTER(Fact_Tickets, Fact_Tickets[status] = "Resolved"))` |
+| 17 | Top Agent Resolved | `CALCULATE([Resolved Tickets], TOPN(10, Dim_Agent, [Resolved Tickets]))` |
+
+---
+
+## ❓ Business Questions Answered
+
+**Agent Performance**
+- Which agents have the highest Average Handle Time (AHT)?
+- Which agents resolve the most tickets?
+- How does escalation rate vary by agent seniority?
+
+**Channel & Cost**
+- Which support channel is most cost-effective per contact?
+- Which channel delivers the best First Call Resolution (FCR) rate?
+- Which channel has the highest CSAT score?
+- What is the cost breakdown by support channel?
+- Which channel handles the highest ticket volume?
+
+**Customer Experience**
+- How does customer churn vary by segment (SMB, Enterprise, VIP)?
+- Which customer tier has the best NPS score?
+- What is the average LTV per customer segment?
+- Which region has the highest ticket volume?
+- What is the average number of tickets per customer?
+
+**Operations & SLA**
+- Which teams are breaching SLA the most?
+- Which team has the lowest SLA breach rate?
+- What is the peak hour for incoming ticket volume?
+- Which complaint category takes the longest to resolve?
+- What percentage of tickets are reopened per category?
+
+**Trends & Overview**
+- How does ticket volume trend month over month?
+- How does NPS change over time (2021–2026)?
+
+---
+
 ## 💡 Key Insights
 
 - **Phone** is the most expensive channel ($0.58M) but also handles the highest ticket volume (210K)
@@ -101,7 +159,8 @@ call-center-analytics/
 │   └── Operations___SLA.png
 └── data/
     └── sample_data.xlsx        # Sample/anonymized dataset
-```
 
----
 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/mazen-moataz-098223349/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github)](https://github.com/MazenMoatz)
+[![Email](https://img.shields.io/badge/Email-Contact-red?logo=gmail)](mailto:mazenmotz@gmail.com)
