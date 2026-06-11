@@ -105,10 +105,3 @@ call-center-analytics/
 
 ---
 
-## 👤 Author
-
-**Hashem** — Data Analyst & BI Developer  
-Business Information Systems, Galala University
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://linkedin.com/in/YOUR_LINKEDIN)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github)](https://github.com/MazenMoatz)
